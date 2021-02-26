@@ -59,16 +59,10 @@ def work04b(request):
         "title" : "ワーク04b"
     }
     
-    data = {
-        "name" : "",
-        "age" : "",
-    }
-    
     # GETパラメータの取得
-    if "name" in request.GET :
-        data["name"] = request.GET["name"]
-    if "age" in request.GET :
-        data["age"] = request.GET["age"]
+    data = {}
+    data["name"] = request.GET.get("name","")
+    data["age"] = request.GET.get("age","");
 
     # GETパラメータの代入
     context["data"] = data
@@ -87,15 +81,10 @@ def work05b(request):
         "title" : "ワーク05b"
     }
     
-    data  = {
-        "name" : "",
-        "age" : "",
-    }
     # POSTパラメータの取得
-    if "name" in request.POST :
-        data["name"] = request.POST["name"]
-    if "age" in request.POST :
-        data["age"] = request.POST["age"]
+    data = {}
+    data["name"] = request.POST.get("name","")
+    data["age"] = request.POST.get("age","");
     
     # POSTパラメータの代入
     context["data"] = data
@@ -106,17 +95,12 @@ def work06(request):
     context = {
         "title" : "ワーク06"
     }
-
-    data  = {
-        "name" : "",
-        "age" : "",
-    }
+    
+    data = {}
     if request.method == "POST" :
-        # POSTパラメータがあれば、代入する
-        if "name" in request.POST :
-            data["name"] = request.POST["name"]
-        if "age" in request.POST :
-            data["age"] = request.POST["age"]
+        # POSTパラメータの取得
+        data["name"] = request.POST.get("name","")
+        data["age"] = request.POST.get("age","");
     
     # 代入
     context["data"] = data
@@ -128,13 +112,12 @@ def work07(request):
         "title" : "ワーク07"
     }
 
-    data  = {
-        "age" : "",
-    }
+    data = {}
     if request.method == "POST" :
-        # POSTパラメータがあれば、代入する
-        if "age" in request.POST :
-            data["age"] = int(request.POST["age"])
+        # POSTパラメータの取得
+        age = request.POST.get("age","");
+        # 数値に変換する
+        data["age"] = int(age)
     
     # 代入
     context["data"] = data
@@ -167,17 +150,10 @@ def work10(request):
         "title" : "ワーク10",
     }
     
-    data = {
-        "music" : "",
-        "movie" : "",
-    }
-    
+    data = {}
     if request.method == "POST" :
-        if "music" in request.POST :
-            data["music"] = request.POST["music"]
-        if "movie" in request.POST :
-            data["movie"] = request.POST["movie"]
-    
+        data["music"] = request.POST.get("music","")
+        data["movie"] = request.POST.get("movie","")
     context["data"] = data
     return render(request, "chapter05/work10.html", context)
 
@@ -187,17 +163,11 @@ def work11(request):
         "title" : "ワーク11",
     }
     
-    data = {
-        "name" : "",
-        "score" : "",
-    }
-    
+    data = {}
     if request.method == "POST" :
-        if "name" in request.POST :
-            data["name"] = request.POST["name"]
-        if "score" in request.POST :
-            data["score"] = int(request.POST["score"])
-    
+        data["name"] = request.POST.get("name")
+        score = request.POST.get("score")
+        data["score"] = int(score)
     context["data"] = data
     return render(request, "chapter05/work11.html", context)
 
