@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'chapter08',
     'chapter09',
     'chapter10',
+    'chapter11',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
