@@ -19,3 +19,12 @@
     background: #FFE7BA;
     color: #EE7600;
 }
+.form-control-custom {
+    overflow: hidden;
+    margin-left: 3px;
+}
+.form-control-custom li {
+    float: left;
+    list-style: none;
+    margin-right: 20px;
+}
